@@ -1,0 +1,12 @@
+import urllib
+uResponse = urllib.urlopen('http://naver.com/')
+_html = uResponse.read()
+
+
+import re
+#p=re.compile('http://.+"')
+p=re.compile('href="(http://.*?)"')
+nodes=p.findall(_html)
+print "http url은 몇 개?",len(nodes)
+for i, node in enumerate(nodes):
+    print i, node
